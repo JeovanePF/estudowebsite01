@@ -66,12 +66,12 @@ header {
 .menu ul li a:hover {
     color: var(--vermelho);
 }
-#btn-login {
+.menu #btn-login {
     padding: 10px 30px;
     border-radius: 3px;
     background-image: var(--vermelhoGradient);
 }
-#btn-login:hover {
+.menu #btn-login:hover {
     color: var(--branco);
     background-image: var(--vermelhoGradientEscuro);
 }
@@ -114,10 +114,10 @@ header {
 .menu-mobile ul li a:hover {
     background-color: var(--vermelho);
 }
-#btn-login-mobile {
+.menu-mobile #btn-login-mobile {
     background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
 }
-#btn-login-mobile:hover {
+.menu-mobile #btn-login-mobile:hover {
     background-image: linear-gradient(145deg, rgb(202, 58, 58), rgb(153, 44, 44));
 }
 .menu-mobile-mostrar {
@@ -137,19 +137,19 @@ main {
     background-color: rgb(0, 0, 0);
     overflow: hidden;
 }
-.slides {
+.carousel .slides {
     position: absolute;
     animation: suavizar .8s;
 }
 .carousel .slides,
-.slides img {
+.carousel .slides img {
     width: 100%;
     height: 100%;
 }
 .carousel .slides img {
     object-fit: cover;
 }
-.slides .content {
+.carousel .slides .content {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -157,27 +157,27 @@ main {
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.507);
 }
-.slides .content div {
+.carousel .slides .content div {
     width: 80%;
     max-width: 700px;
     text-align: center;
     color: var(--branco);
 }
-.slides .content div h2 {
+.carousel .slides .content div h2 {
     font-family: 'RapierZero', 'Nunito',sans-serif;
     font-size: 4rem;
     text-shadow: 0 0 15px var(--preto);
     margin-bottom: 20px;
     color: var(--vermelho);
 }
-.slides .content div h2,
-.slides .content div p {
+.carousel .slides .content div h2,
+.carousel .slides .content div p {
     animation: moverTop .9s ease-out;
 }
-.slides .content div button {
+.carousel .slides .content div button {
     animation: moverBottom .9s ease-out;
 }
-.slides .content div button {
+.carousel .slides .content div button {
     width: 200px;
     height: 50px;
     margin-top: 40px;
@@ -186,7 +186,7 @@ main {
     color: inherit;
     background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
 }
-.slides .content div button:hover {
+.carousel .slides .content div button:hover {
     cursor: pointer;
     background-image: linear-gradient(145deg, rgb(202, 58, 58), rgb(153, 44, 44));
 }
@@ -199,26 +199,26 @@ main {
 .buttons i:hover {
     cursor: pointer;
 }
-.btn-left,
-.btn-right {
+.buttons .btn-left,
+.buttons .btn-right {
     position: absolute;
     padding: 12px 5px;
     color: var(--branco);
     background-color: rgba(58, 58, 58, 0.336);
     transition: padding .4s, background-color .6s;
 }
-.btn-left {
+.buttons .btn-left {
     left: 0;
     margin-left: 20px;
     border-radius: 5px 0 0 5px;
 }
-.btn-right {
+.buttons .btn-right {
     right: 0;
     margin-right: 20px;
     border-radius: 0 5px 5px 0;
 }
-.btn-left:hover,
-.btn-right:hover {
+.buttons .btn-left:hover,
+.buttons .btn-right:hover {
     padding: 16px 9px;
     background-color: rgba(230, 66, 66, 0.616);
 }
@@ -228,16 +228,16 @@ main {
     background-image: linear-gradient(145deg, rgb(14, 14, 14), rgb(33, 33, 33));
     flex-direction: column;
 }
-.destaques-titulo {
+.destaques .destaques-titulo {
     text-align: center;
     font-size: 40px;
     color: var(--vermelho);
 }
-.destaques-titulo h2 {
+.destaques .destaques-titulo h2 {
     font-family: 'RapierZero', 'Nunito',sans-serif;
     text-shadow: 0 0 15px var(--preto);
 }
-.card-container {
+.destaques .card-container {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
@@ -245,23 +245,23 @@ main {
     gap: 20px;
     padding: 100px 0;
 }
-.area-card {
+.destaques .card-container .area-card {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
     box-shadow:  7px 7px 14px rgb(12, 12, 12), -7px -7px 14px rgb(19, 19, 19);
 }
-.area-card .card {
-    width: 200px;
-    height: 300px;
+.destaques .card-container .area-card .card {
+    width: 250px;
+    height: 350px;
 }
-.area-card .card img {
+.destaques .card-container .area-card .card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: .5s;
 }
-.area-card button {
+.destaques .card-container .area-card button {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -274,11 +274,11 @@ main {
     background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
     box-shadow: 0 0 20px rgb(0, 0, 0);
 }
-.area-card:hover img {
+.destaques .card-container .area-card:hover img {
     filter: grayscale(80%);
     transform: scale(1.1);
 }
-.area-card:hover button {
+.destaques .card-container .area-card:hover button {
     opacity: 1;
     transform: translateY(0px);
     cursor: pointer;
@@ -327,5 +327,9 @@ main {
     }
     .menu-mobile {
         display: block;
+    }
+    .destaques .card-container .area-card .card {
+        width: 350px;
+        height: 450px;
     }
 }
