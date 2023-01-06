@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Nunito', sans-serif;
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 :root {
     font-size: 100%;
@@ -14,8 +15,16 @@
     --vermelhoGradientEscuro: linear-gradient(145deg, rgb(202, 58, 58), rgb(153, 44, 44));
 }
 @font-face {
-    font-family: RapierZero;
+    font-family: RapierZeroItalic;
     src: url(../fonts/RapierZeroItalic-DyK3.ttf);
+}
+@font-face {
+    font-family: RapierZeroNormal;
+    src: url(../fonts/RapierZero-325M.ttf);
+}
+@font-face {
+    font-family: RapierZeroRegular;
+    src: url(../fonts/RapierZeroHollow-xqdO.ttf);
 }
 @font-face {
     font-family: PocketMonk;
@@ -35,6 +44,7 @@
 
 /* ============> */
 /* ============> ESTILIZAÇÃO DO CABEÇALHO */
+
 header {
     position: fixed;
     width: 100%;
@@ -109,7 +119,7 @@ header {
 .menu-mobile ul li a {
     display: block;
     padding: 20px 0;
-    color: var(--branco)
+    color: var(--branco);
 }
 .menu-mobile ul li a:hover {
     background-color: var(--vermelho);
@@ -128,12 +138,12 @@ header {
 /* ============> ESTILIZAÇÃO DO CONTEÚDO PRINCIPAL*/
 
 main {
-    padding-top: 70px;
+    
 }
 .carousel {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 670px;
     background-color: rgb(0, 0, 0);
     overflow: hidden;
 }
@@ -164,7 +174,7 @@ main {
     color: var(--branco);
 }
 .carousel .slides .content div h2 {
-    font-family: 'RapierZero', 'Nunito',sans-serif;
+    font-family: 'RapierZeroItalic', 'Nunito',sans-serif;
     font-size: 4rem;
     text-shadow: 0 0 15px var(--preto);
     margin-bottom: 20px;
@@ -234,7 +244,7 @@ main {
     color: var(--vermelho);
 }
 .destaques .destaques-titulo h2 {
-    font-family: 'RapierZero', 'Nunito',sans-serif;
+    font-family: 'RapierZeroItalic', 'Nunito',sans-serif;
     text-shadow: 0 0 15px var(--preto);
 }
 .destaques .card-container {
@@ -261,7 +271,10 @@ main {
     object-fit: cover;
     transition: .5s;
 }
-.destaques .card-container .area-card button {
+.destaques .card-container .area-card .card-content {
+    position: absolute;
+}
+.destaques .card-container .area-card .card-content button {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -274,13 +287,30 @@ main {
     background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
     box-shadow: 0 0 20px rgb(0, 0, 0);
 }
-.destaques .card-container .area-card:hover img {
+.destaques .card-container .area-card .card-content div {
+    width: 350px;
+    text-align: center;
+    transition: .5s;
+    padding: 20px 0;
+    background-image: linear-gradient(145deg, rgb(14, 14, 14), rgba(33, 33, 33, 0.425));
+}
+.destaques .card-container .area-card .card-content div h3 {
+    font-family: 'RapierZeroItalic', 'Nunito', sans-serif;
+    color: var(--vermelho);
+    text-shadow: 3px 3px 0px rgb(0, 0, 0);
+}
+.destaques .card-container .area-card:hover .card img {
     filter: grayscale(80%);
     transform: scale(1.1);
 }
 .destaques .card-container .area-card:hover button {
     opacity: 1;
     transform: translateY(0px);
+    cursor: pointer;
+} 
+.destaques .card-container .area-card:hover .card-content div {
+    opacity: 1;
+    transform: translateY(300px);
     cursor: pointer;
 } 
 /* ============> ANIMAÇÕES*/
