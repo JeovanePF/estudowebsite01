@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+}
+:root {
+    font-size: 100%;
+    --branco: rgb(255, 255, 255);
+    --vermelho: rgb(202, 88, 88);
+    --preto: rgb(0, 0, 0);
+    --vermelhoGradient: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
+    --vermelhoGradientEscuro: linear-gradient(145deg, rgb(202, 58, 58), rgb(153, 44, 44));
+}
+@font-face {
+    font-family: RapierZero;
+    src: url(../fonts/RapierZeroItalic-DyK3.ttf);
+}
+@font-face {
+    font-family: PocketMonk;
+    src: url(../fonts/PocketMonk-15ze.ttf);
+}
+@font-face {
+    font-family: FonsTars;
+    src: url(../fonts/Fonstars-4Bo0p.otf);
+}
+/* ============> CLASSES GLOBAIS */
+
+.centralizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============> */
+/* ============> ESTILIZAÇÃO DO CABEÇALHO */
+header {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(20, 20, 20);
+    z-index: 1;
+}
+.logo a {
+    margin-left: 20px;
+    color: var(--vermelho);
+    font-weight: 700;
+    font-size: 30px;
+    font-family: 'FonsTars', 'Nunito', sans-serif;
+}
+/* ============> MENU DESKTOP */
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin-right: 40px;
+}
+.menu ul li a {
+    color: var(--branco);
+    font-size: 14px;
+}
+.menu ul li a:hover {
+    color: var(--vermelho);
+}
+#btn-login {
+    padding: 10px 30px;
+    border-radius: 3px;
+    background-image: var(--vermelhoGradient);
+}
+#btn-login:hover {
+    color: var(--branco);
+    background-image: var(--vermelhoGradientEscuro);
+}
+/* ============> MENU MOBILE */
+.btn-mobile {
+    display: none !important;
+    color: var(--branco);
+    font-size: 34px !important;
+}
+.btn-mobile:hover {
+    cursor: pointer;
+    color: var(--vermelho);
+}
+.menu-mobile {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 70px;
+    z-index: 1;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height .3s ease-in-out;
+}
+.menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background-color: rgb(41, 41, 41);
+}
+.menu-mobile ul li {
+    width: 100%;
+    text-align: center;
+}
+.menu-mobile ul li a {
+    display: block;
+    padding: 20px 0;
+    color: var(--branco)
+}
+.menu-mobile ul li a:hover {
+    background-color: var(--vermelho);
+}
+#btn-login-mobile {
+    background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
+}
+#btn-login-mobile:hover {
+    background-image: linear-gradient(145deg, rgb(202, 58, 58), rgb(153, 44, 44));
+}
+.menu-mobile-mostrar {
+    height: 310px;
+}
+/* ============> FIM */
+
+/* ============> ESTILIZAÇÃO DO CONTEÚDO PRINCIPAL*/
+
+main {
+    padding-top: 70px;
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+}
+.slides {
+    position: absolute;
+    animation: suavizar .8s;
+}
+.carousel .slides,
+.slides img {
+    width: 100%;
+    height: 100%;
+}
+.carousel .slides img {
+    object-fit: cover;
+}
+.slides .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.507);
+}
+.slides .content div {
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: var(--branco);
+}
+.slides .content div h2 {
+    font-family: 'RapierZero', 'Nunito',sans-serif;
+    font-size: 4rem;
+    text-shadow: 0 0 15px var(--preto);
+    margin-bottom: 20px;
+    color: var(--vermelho);
+}
+.slides .content div h2,
+.slides .content div p {
+    animation: moverTop .9s ease-out;
+}
+.slides .content div button {
+    animation: moverBottom .9s ease-out;
+}
+.slides .content div button {
+    width: 200px;
+    height: 50px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 3px;
+    color: inherit;
+    background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
+}
+.slides .content div button:hover {
+    cursor: pointer;
+    background-image: linear-gradient(145deg, rgb(202, 58, 58), rgb(153, 44, 44));
+}
+.buttons {
+    height: 100%;
+}
+.buttons i {
+    font-size: 30px;
+}
+.buttons i:hover {
+    cursor: pointer;
+}
+.btn-left,
+.btn-right {
+    position: absolute;
+    padding: 12px 5px;
+    color: var(--branco);
+    background-color: rgba(58, 58, 58, 0.336);
+    transition: padding .4s, background-color .6s;
+}
+.btn-left {
+    left: 0;
+    margin-left: 20px;
+    border-radius: 5px 0 0 5px;
+}
+.btn-right {
+    right: 0;
+    margin-right: 20px;
+    border-radius: 0 5px 5px 0;
+}
+.btn-left:hover,
+.btn-right:hover {
+    padding: 16px 9px;
+    background-color: rgba(230, 66, 66, 0.616);
+}
+/* ============> */
+.destaques {
+    padding: 100px 0;
+    background-image: linear-gradient(145deg, rgb(14, 14, 14), rgb(33, 33, 33));
+    flex-direction: column;
+}
+.destaques-titulo {
+    text-align: center;
+    font-size: 40px;
+    color: var(--vermelho);
+}
+.destaques-titulo h2 {
+    font-family: 'RapierZero', 'Nunito',sans-serif;
+    text-shadow: 0 0 15px var(--preto);
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    gap: 20px;
+    padding: 100px 0;
+}
+.area-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow:  7px 7px 14px rgb(12, 12, 12), -7px -7px 14px rgb(19, 19, 19);
+}
+.area-card .card {
+    width: 200px;
+    height: 300px;
+}
+.area-card .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+.area-card button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 500px;
+    border: none;
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: .5s;
+    color: var(--branco);
+    background-image: linear-gradient(145deg, rgb(225, 70, 70), rgb(189, 59, 59));
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+.area-card:hover img {
+    filter: grayscale(80%);
+    transform: scale(1.1);
+}
+.area-card:hover button {
+    opacity: 1;
+    transform: translateY(0px);
+    cursor: pointer;
+} 
+/* ============> ANIMAÇÕES*/
+
+@keyframes suavizar {
+    from {
+        opacity: 30%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+@keyframes moverTop {
+    from {
+        opacity: 0;
+        transform: translateY(-250px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes moverBottom {
+    from {
+        opacity: 0;
+        transform: translateY(250px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+@media screen and (max-width: 980px) {
+    header {
+        justify-content: space-evenly;
+    }
+    .menu {
+        display: none;
+    }
+    .btn-mobile {
+        display: block !important;
+    }
+    .menu-mobile {
+        display: block;
+    }
+}
